@@ -1,0 +1,79 @@
+
+
+<template>
+
+    <lightning-card title="Income" icon-name="utility:money">
+
+        <div class="slds-p-around_medium">
+
+          <template for:each={incomeList} for:item="item">
+
+                  <div key={item.id} class="slds-box slds-m-bottom_small">
+
+                        <lightning-layout multiple-rows>
+
+                        <lightning-layout-item size="6" padding="around-small">
+
+                            <lightning-combobox label="Type"
+                                value={item.type}
+                                options={options}
+                                data-id={item.id}
+                                onchange={handleType}>
+                              </lightning-combobox>
+
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="6" padding="around-small">
+
+                            <lightning-input type="number" label="Amount"
+                                data-id={item.id}
+                                onchange={handleAmount}>
+
+                              </lightning-input>
+
+                          </lightning-layout-item>
+
+                        <template if:true={item.isOther}>
+
+                            <lightning-layout-item size="12" padding="around-small">
+
+                                <lightning-input label="Description"
+                                    data-id={item.id}
+                                    onchange={handleDesc}>
+                                </lightning-input>
+
+                               </lightning-layout-item>
+
+                          </template>
+
+                      </lightning-layout>
+
+                    <div class="slds-text-align_right">
+
+                        <lightning-button variant="destructive-text"
+                            label="Remove"
+                            data-id={item.id}
+                            onclick={removeRow}>
+
+                          </lightning-button>
+
+                    </div>
+
+                </div>
+
+            </template>
+
+            <lightning-button variant="neutral"
+
+                label="Add Income"
+                icon-name="utility:add"
+
+                onclick={addRow}>
+
+              </lightning-button>
+
+        </div>
+
+    </lightning-card>
+    
+</template>

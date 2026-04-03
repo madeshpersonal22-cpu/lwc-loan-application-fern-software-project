@@ -1,0 +1,67 @@
+
+
+<template>
+    <lightning-card title="Loan Application" icon-name="standard:account">
+
+        <div class="slds-p-around_medium">
+
+            <!-- loan parent components-->
+            <div class="slds-box slds-theme_default slds-m-bottom_medium">
+
+                <h2 class="slds-text-heading_small slds-m-bottom_small">Loan Details</h2>
+
+                <lightning-layout multiple-rows>
+
+                    <lightning-layout-item size="6" padding="around-small">
+
+                        <lightning-input label="Loan Amount" type="number"
+                            onchange={handleLoanAmount}>
+                            </lightning-input>
+
+                         </lightning-layout-item>
+
+                  </lightning-layout>
+
+            </div>
+
+            <!-- child components -->
+            <div class="slds-grid slds-gutters">
+
+                <div class="slds-col slds-size_1-of-2">
+
+                    <c-income-child onincomechange={handleIncome}></c-income-child>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+
+                    <c-debt-child ondebtchange={handleDebt}></c-debt-child>
+                </div>
+
+            </div>
+
+            <!-- submit cancel button -->
+
+            <div class="slds-align_absolute-center slds-m-top_large">
+
+                <lightning-button variant="brand"
+                    label="Submit Application"
+
+                    onclick={handleSubmit}
+                    class="slds-m-right_small">
+                  </lightning-button>
+
+                 <lightning-button 
+                    variant="neutral"
+                    label="Cancel"
+                    onclick={handleCancel}
+                    class="slds-m-right_small">
+                 </lightning-button>
+
+            </div>
+              
+
+        </div>
+
+    </lightning-card>
+    
+</template>

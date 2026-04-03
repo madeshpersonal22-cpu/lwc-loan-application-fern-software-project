@@ -1,0 +1,64 @@
+
+
+<template>
+     <lightning-card title="Debt" icon-name="utility:warning">
+
+         <div class="slds-p-around_medium">
+
+            <template for:each={debtList} for:item="item">
+
+                <div key={item.id} class="slds-box slds-m-bottom_small">
+
+
+                    <lightning-layout multiple-rows>
+
+
+                        <lightning-layout-item size="6" padding="around-small">
+
+                            <lightning-input label="Source"
+                                data-id={item.id}
+                                onchange={handleSource}>
+
+                            </lightning-input>
+
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="6" padding="around-small">
+
+                            <lightning-input type="number" label="Amount"
+                                data-id={item.id}
+                                onchange={handleAmount}>
+
+                            </lightning-input>
+
+                         </lightning-layout-item>
+
+                    </lightning-layout>
+
+                    <div class="slds-text-align_right">
+
+                        <lightning-button variant="destructive-text"
+                            label="Remove"
+                            data-id={item.id}
+                            onclick={removeRow}>
+
+                        </lightning-button>
+
+                    </div>
+
+                </div>
+
+            </template>
+
+            <lightning-button variant="neutral"
+                label="Add Debt"
+                icon-name="utility:add"
+                onclick={addRow}>
+
+            </lightning-button>
+
+        </div>
+
+    </lightning-card>
+    
+</template>
